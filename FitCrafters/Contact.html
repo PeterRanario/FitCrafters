@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - FitCrafters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    .navbar {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 4px solid #000000;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .navbar .menu a {
+      color: #000;
+      background: white;
+      padding: 8px 16px;
+      margin: 0 5px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    .navbar .menu a:hover {
+      background-color: #ddd;
+    }
+    .contact-section {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.contact-section h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 16px;
+}
+
+.submit-btn {
+  padding: 12px 24px;
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #333;
+}
+
+.contact-image {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+.modal-box button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-box button:hover {
+  background-color: #333;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="/Image.img/Logo.jpg" alt="FitCrafters Logo">
+      FitCrafters
+    </div>
+    <div class="menu">
+      <a href="/FitCrafters/Productpage.html">Products</a>
+      <a href="/FitCrafters/About.html">About</a>
+      <a href="/FitCrafters/Contact.html">Contact</a>
+      <a href="/FitCrafters/Cart.html"><img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart" style="height: 24px; vertical-align: middle;"></a>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <h1>Contact Us</h1>
+    <div class="contact-container">
+        <form class="contact-form" onsubmit="return handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lastName">Last Name*</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+          <div class="form-group">
+            <label for="firstName">First Name*</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Contact Email*</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="notification">Notification*</label>
+          <textarea id="notification" name="notification" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send in Your Application</button>
+      </form>
+      <div class="contact-image">
+        <img src="/Image.img/0510.gif" alt="FitCrafters Illustration" />
+      </div>
+    </div>
+  </div>
+  <!-- Success Modal -->
+<div id="successModal" class="modal-overlay">
+    <div class="modal-box">
+      <p>Your message has been sent successfully!</p>
+      <button onclick="closeModal()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      document.getElementById("successModal").style.display = "flex";
+      event.target.reset();
+      return false;
+    }
+  
+    function closeModal() {
+      document.getElementById("successModal").style.display = "none";
+    }
+  </script>
+  
+  
+</body>
+</html>  
+

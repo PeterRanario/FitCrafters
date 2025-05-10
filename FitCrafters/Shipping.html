@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shipping - FitCrafters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    .navbar {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 4px solid #000000;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .navbar .menu a {
+      color: #000;
+      background: white;
+      padding: 8px 16px;
+      margin: 0 5px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    .navbar .menu a:hover {
+      background-color: #ddd;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .form-group input,
+    .full-width input {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #aaa;
+    }
+    .half {
+      flex: 1 1 45%;
+    }
+    .full-width {
+      margin: 20px 0;
+    }
+    .payment-method {
+      margin-top: 30px;
+    }
+    .payment-method label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .submit-btn {
+      background: black;
+      color: white;
+      padding: 14px 28px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      display: block;
+      margin-top: 30px;
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+          <img src="/Image.img/Logo.jpg" alt="FitCrafters Logo">
+          FitCrafters
+        </div>
+        <div class="menu">
+          <a href="/FitCrafters/Productpage.html">Products</a>
+          <a href="/FitCrafters/About.html">About</a>
+          <a href="/FitCrafters/Contact.html">Contact</a>
+          <a href="/FitCrafters/Cart.html"><img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart" style="height: 24px; vertical-align: middle;"></a>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Shipping Address</h2>
+        <form id="shipping-form">
+          <div class="form-group">
+            <div class="half">
+              <label>Last Name*</label>
+              <input type="text" required>
+            </div>
+            <div class="half">
+              <label>First Name*</label>
+              <input type="text" required>
+            </div>
+          </div>
+          <div class="full-width">
+            <label>Complete Address*</label>
+            <input type="text" required>
+          </div>
+          <div class="full-width">
+            <label>Phone Number*</label>
+            <input type="tel" required>
+          </div>
+          <div class="full-width">
+            <label>Email Address*</label>
+            <input type="email" required>
+            <small>Order confirmation and tracking information will be sent to this email address.</small>
+          </div>
+      
+          <div class="payment-method">
+            <h3>Payment Method</h3>
+            <label><input type="radio" name="payment" value="gcash"> GCash</label><br>
+            <label><input type="radio" name="payment" value="credit"> Credit/Debit Card</label><br>
+            <label><input type="radio" name="payment" value="cod"> Cash on Delivery</label>            
+          </div>
+      
+          <button class="submit-btn" onclick="window.location.href='confirmation.html'">PROCEED TO CHECKOUT</button>
+        </form>
+      </div>
+
+      <div id="payment-info" style="display: none; margin-top: 20px; font-weight: bold;"></div>
+
+
+      <script>
+        const paymentRadios = document.querySelectorAll('input[name="payment"]');
+        const paymentInfo = document.getElementById('payment-info');
+      
+        paymentRadios.forEach(radio => {
+          radio.addEventListener('change', () => {
+            switch (radio.value) {
+              case 'gcash':
+                paymentInfo.innerHTML = `
+                  GCash Number: <span style="color:green;">0917-123-4567</span><br>
+                  Account Name: <span>FitCrafters PH</span>
+                `;
+                paymentInfo.style.display = 'block';
+                break;
+              case 'credit':
+                paymentInfo.innerHTML = `
+                  Bank: <span>Bank of the Philippine Islands (BPI)</span><br>
+                  Account Number: <span style="color:green;">1234 5678 9012</span><br>
+                  Account Name: <span>FitCrafters PH</span>
+                `;
+                paymentInfo.style.display = 'block';
+                break;
+              case 'cod':
+                paymentInfo.innerHTML = '';
+                paymentInfo.style.display = 'none';
+                break;
+            }
+          });
+        });
+
+  document.getElementById("shippingForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    // You could store data in localStorage here if needed
+    window.location.href = "confirmation.html";
+  });
+
+  </script>
+
+</body>
+</html>

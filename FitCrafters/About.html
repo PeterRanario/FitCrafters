@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - FitCrafters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    .navbar {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 4px solid #000000;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .navbar .menu a {
+      color: #000;
+      background: white;
+      padding: 8px 16px;
+      margin: 0 5px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    .navbar .menu a:hover {
+      background-color: #ddd;
+    }
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .content p {
+      max-width: 800px;
+      margin: 10px auto;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-top: 20px;
+    }
+    .team {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .team-member {
+      text-align: center;
+      max-width: 200px;
+    }
+    .team-member img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #000;
+    }
+    .team-member p {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: 5% auto;
+  display: block;
+  max-width: 80%;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="/Image.img/Logo.jpg" alt="FitCrafters Logo">
+      FitCrafters
+    </div>
+    <div class="menu">
+      <a href="/FitCrafters/Productpage.html">Products</a>
+      <a href="/FitCrafters/About.html">About</a>
+      <a href="/FitCrafters/Contact.html">Contact</a>
+      <a href="/FitCrafters/Cart.html"><img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart" style="height: 24px; vertical-align: middle;"></a>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1>About Us</h1>
+    <p>
+      At FitCrafters, we believe healthy living should be simple, affordable, and accessible to everyone. Managed by a tech-savvy team with over 2 years of IT experience, we combine technology and wellness to create a seamless shopping experience. From easy online ordering to expert customer support, we’re here to make your fitness journey smoother and more rewarding.
+    </p>
+    <p>
+      With trusted, high-quality products and a passion for helping our community thrive, FitCrafters is your reliable partner in building a healthier, stronger lifestyle.
+    </p>
+    <p class="quote">
+      "Empowering your fitness journey through smart gear."
+    </p>
+
+    <div class="team">
+      <div class="team-member">
+        <img src="/Image.img/peter.jpg" onclick="openModal('/Image.img/peter.jpg')" alt="Peter">
+        <p>Product Designer (PD):<br>Peter Cruz R. Ranario</p>
+      </div>
+      <div class="team-member">
+        <img src="/Image.img/jacob.jpg" onclick="openModal('/Image.img/jacob.jpg')" alt="Jacob">
+        <p>Project Manager (PM):<br>Jacob Israel A. Ranin Jr.</p>
+      </div>
+      <div class="team-member">
+        <img src="/Image.img/lylle.jpg" onclick="openModal('/Image.img/lylle.jpg')" alt="Lylle">
+        <p>Web Developer:<br>Lylle Andrei Subesa</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Modal Structure -->
+<div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Team Member Enlarged">
+    </div>
+  </div>
+  
+
+</body>
+</html>
+
+<script>
+    function openModal(imageSrc) {
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = imageSrc;
+    }
+  
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
+  
