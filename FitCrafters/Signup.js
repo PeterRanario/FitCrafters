@@ -16,5 +16,5 @@ const createbutton = document.getElementById('createbutton');
 createbutton.addEventListener('click', function() {
 
     // Successful login (you can later add real authentication here)
-    window.location.href = "Loginpage.html";  // Redirect to homepage
+    window.location.href = "index.html";  // Redirect to homepage
   });
