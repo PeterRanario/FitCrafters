@@ -14,7 +14,7 @@ loginButton.addEventListener('click', function() {
     alert("Please enter both email and password.");
   } else {
     // Successful login (you can later add real authentication here)
-    window.location.href = "Homepage.html";  // Redirect to homepage
+    window.location.href = "index.html";  // Redirect to homepage
   }
 });
 
